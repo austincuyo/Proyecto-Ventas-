@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\User;
 use App\Permission\Models\Role;
 use App\Permission\Models\Permission;
+use App\Product;
+use App\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,54 +19,29 @@ use App\Permission\Models\Permission;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    /*
+    $prod = new Product();
+    $prod->nombre = 'Producto 3';
+    $prod->slug = 'Producto 3';
+    $prod->category_id = 2;
+    $prod->descripcion_corta = 'Producto';
+    $prod->descripcion_larga = 'Producto';
+    $prod->especificaciones = 'Producto';
+    $prod->datos_de_interes = 'Producto';
+    $prod->estado = 'Nuevo';
+    $prod->activo = 'Si';
+    $prod->sliderprincipal = 'No'; 
+    $prod->save();
+    return $prod;
+    */
+    //return view('welcome');
+    $cat = Category::find(2)->products;
+    return $cat;
+
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/test', function () {
-    /*
-
-    return Role::create([
-        'name' => 'Admin',
-        'slug' => 'admin',
-        'description' => 'Administrador',
-        'full-access' => 'yes'
-        ]);
-
-        */
-        /*
-        return Role::create([
-            'name' => 'Guest',
-            'slug' => 'guest',
-            'description' => 'guest',
-            'full-access' => 'no'
-        ]);
-        */
-        /*
-
-        return Role::create([
-            'name' => 'Test',
-            'slug' => 'test',
-            'description' => 'test',
-            'full-access' => 'no'
-        ]);*/
-
-   //$user = User::find(1);
-   //$user->roles()->attach([1,3]);
-   //$user->roles()->detach([3]);
-  // $user->roles()->sync([1,2,3]);
-   //return $user->roles;
-
-   /*
-   return Permission::create([
-        'name' => 'List product',
-        'slug' => 'product.inex',
-        'description' => 'A user can list permissions',       
-    ]);*/
-   $role = Role::find(2);
-   $role->permissions()->sync([1,2]);
-   return $role->permissions;
-});
+Route::resource('/role', 'RoleController')->names('role');
