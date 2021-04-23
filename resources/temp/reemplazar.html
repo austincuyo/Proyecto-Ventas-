@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>  
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <form action="">
+                <h1>Crear Categoria</h1>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input v-model="nombre" class="form-control" type="text" name="nombre" id="nombre">
+                    <label for="slug">slug</label>
+                    <input readonly v-model="generarSlug" class="form-control" type="text" name="slug" id="slug">
+                    <label for="descripcion">Descripcion</label>
+                    <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                    
+                </div>
+                <input type="submit" value="Guardar" class="btn btn-primary float-right">
+            </form>
+            <br>
+            <br>
+            {{nombre}}
+            <br>
+            {{generarSlug}}
+
+        </div>
+    </div>
+    
+</body>
+<script>
+    var app = new Vue({
+        el : '#app',
+        data : {
+            nombre:'Austin Cuyo'
+        },
+        computed: {
+            generarSlug : function(){
+            var char= {
+                "á":"a","é":"e","í":"i","ó":"o","ú":"u",
+                "Á":"A","É":"E","Í":"I","Ó":"O","Ú":"U",
+                "ñ":"n","Ñ":"N"," ":"-","_":"-"
+            }
+            var expr = /[áéíóúÁÉÍÓÚÑñ_ ]/g;
+            return this.nombre.trim().replace(expr, function(e){
+                return char[e]
+            }).toLowerCase()
+             //return this.nombre.trim().replace(/ /g,'-').toLowerCase()
+            }
+        }
+    });
+</script>
+</html>

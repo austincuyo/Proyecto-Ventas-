@@ -12,11 +12,7 @@
                     <br>
                     <br>
                                             
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @include('custom.message')
                     
                     <table class="table table-hover">
                         <thead>

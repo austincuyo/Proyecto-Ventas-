@@ -124,6 +124,6 @@ class AustinPermissionInforSeeder extends Seeder
         
         $permission_all[] = $permission->id;
         //table permission_role
-        $roladmin->permissions()->sync($permission_all);
+        //$roladmin->permissions()->sync($permission_all);
     }
 }
