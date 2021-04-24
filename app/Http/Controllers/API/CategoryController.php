@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+       /* $cat = new Category();
+        $cat->nombre        ='Mujer';
+        $cat->slug          ='mujer';
+        $cat->descripcion   ='Ropa de mujer';
+        $cat->save();
+        return $cat; */
+        return Category::all();
     }
 
     /**
@@ -34,9 +41,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        if (Category::where('slug',$slug)->first()) {
+            return 'Slug existe';
+        }    
+        else {
+            return 'Slug Disponible';
+        }
     }
 
     /**
