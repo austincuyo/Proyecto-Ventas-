@@ -42,6 +42,11 @@ Route::get('/', function () {
 
 });
 
+Route::get('/admin', function () {
+
+    return view('admin.category.create');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
