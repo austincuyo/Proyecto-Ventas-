@@ -51,7 +51,7 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/role', 'RoleController')->names('role');
+
 
 Route::get('/test', function () {
 
@@ -61,3 +61,6 @@ Route::get('/test', function () {
    return $user;
     //return $user->havePermission('role.create');
 });
+
+Route::resource('/role', 'RoleController')->names('role');
+Route::resource('/user', 'UserController', ['except'=> ['create','store']])->names('user');
