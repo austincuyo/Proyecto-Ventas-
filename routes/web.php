@@ -43,10 +43,7 @@ Route::get('/', function () {
 
 });
 
-Route::get('/admin', function () {
 
-    return view('admin.category.create');
-});
 
 Auth::routes();
 
@@ -64,3 +61,12 @@ Route::get('/test', function () {
 
 Route::resource('/role', 'RoleController')->names('role');
 Route::resource('/user', 'UserController', ['except'=> ['create','store']])->names('user');
+
+Route::get('/admin', function () {
+
+    return view('plantilla.admin');
+});
+Route::resource('admin/category','Admin\AdminController')->names('admin.category');
+//Route::resource('admin/category', AdminCategoryController::class)->names('admin.category');
+
+//Route::resource('admin/product', AdminProductController::class)->names('admin.product');

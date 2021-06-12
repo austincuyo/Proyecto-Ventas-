@@ -3,9 +3,10 @@
      
  
  @section('contenido')
- <div id="apicategory">
-     
  
+ <div id="apicategory">
+    <form action="{{ route('admin.category.store') }}" method="POST">    
+    @csrf
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
@@ -22,7 +23,7 @@
         
             
                
-                    <form action="">
+                   
                         
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -51,10 +52,11 @@
                         <input 
                         :disabled = "deshabilitar_boton==1"
                         type="submit" value="Guardar" class="btn btn-primary float-right">
-                    </form>
+                   
         </div>
         <!-- /.card-footer-->
     </div>
     <!-- /.card -->
+  </form>
 </div>    
   @endsection
