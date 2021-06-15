@@ -5,8 +5,12 @@
  @section('contenido')
  
  <div id="apicategory">
-    <form action="{{ route('admin.category.store') }}" method="POST">    
+    <form action="{{ route('admin.category.update',$cat->id) }}" method="POST">    
     @csrf
+    @method('PUT')
+    
+    <span style="display: none;" id="editar">{{$editar}}</span>
+    <span style="display: none;" id="nombretemp">{{$cat->nombre}}</span>
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
@@ -15,7 +19,7 @@
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
             <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+             <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
             <i class="fas fa-times"></i></button>
         </div>
         </div>
@@ -30,15 +34,15 @@
                             <input v-model="nombre"
                               @blur="getCategory" 
                               @focus = "div_aparecer= false"
-                            class="form-control" type="text" name="nombre" id="nombre">
+                            class="form-control" type="text" name="nombre" id="nombre" value="{{$cat->nombre}}">
                             <label for="slug">slug</label>
-                            <input readonly v-model="generarSlug" class="form-control" type="text" name="slug" id="slug">
+                            <input readonly v-model="generarSlug" class="form-control" type="text" name="slug" id="slug" value="{{$cat->slug}}">
                             <div v-if="div_aparecer" v-bind:class="div_clase_slug">
                              @{{div_mensajeslug}}
                             </div>
                             <br v-if="div_aparecer">
                             <label for="descripcion">Descripcion</label>
-                            <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5">{{ $cat->descripcion }} </textarea>
                             
                         </div>
                     
