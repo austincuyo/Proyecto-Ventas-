@@ -125,5 +125,19 @@ class AustinPermissionInforSeeder extends Seeder
         $permission_all[] = $permission->id;
         //table permission_role
         //$roladmin->permissions()->sync($permission_all);
+// new
+        $permission = Permission::create([
+            'name' => 'Show own user',
+            'slug' => 'userown.show',
+            'description' => 'A user can see own user',
+        ]);        
+        
+        $permission_all[] = $permission->id;
+        
+        $permission = Permission::create([
+            'name' => 'Edit own user',
+            'slug' => 'userown.edit',
+            'description' => 'A user can edit own user',
+        ]);
     }
 }
