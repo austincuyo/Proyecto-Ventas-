@@ -53,8 +53,9 @@ const apicategory = new Vue({
   },
    mounted()
    {
-     if(document.getElementById('editar').innerHTML)
+     if(document.getElementById('editar')){
      this.nombre = document.getElementById('nombretemp').innerHTML;
      this.deshabilitar_boton=0;
+    }
    }
 });
