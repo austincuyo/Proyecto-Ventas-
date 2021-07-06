@@ -65,7 +65,7 @@ Route::resource('/user', 'UserController', ['except'=> ['create','store']])->nam
 Route::get('/admin', function () {
 
     return view('plantilla.admin');
-});
+})->name('admin');
 Route::resource('admin/category','Admin\AdminCategoryController')->names('admin.category');
 Route::get('cancelar/{ruta}', function ($ruta) {
      return redirect()->route('admin.category.index')->with('cancelar','Accion Cancelada!');  

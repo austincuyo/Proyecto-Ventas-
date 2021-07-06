@@ -1,6 +1,8 @@
  @extends('plantilla.admin')
  @section('titulo','Administración de Categorías')
-  
+ @section('breadcrumb')
+  <li class="breadcrumb-item active">@yield('titulo')</li>
+ @endsection
   @section('contenido')
  
 <div id="confirmareliminar" class="row">
@@ -81,7 +83,7 @@
                 
               </tbody>
             </table>
-            {{ $categorias->links() }}
+            {{ $categorias->appends($_GET)->links() }}
           </div>
           <!-- /.card-body -->
         </div>
