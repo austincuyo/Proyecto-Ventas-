@@ -800,6 +800,6 @@
 <script src="http://127.0.0.1:8000/adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="http://127.0.0.1:8000/adminlte/dist/js/demo.js"></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app_admin.js') }}" defer></script>
 </body>
 </html>
