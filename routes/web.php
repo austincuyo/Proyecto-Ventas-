@@ -20,7 +20,12 @@ use App\Category;
 */
 
 Route::get('/', function () {
-
+    /*
+    $prod= Product::findOrFail(1);
+    $prod->slug= 'producto-3';
+    $prod->save();
+    return $prod;
+    */
     /*
     $prod = new Product();
     $prod->nombre = 'Producto 3';
