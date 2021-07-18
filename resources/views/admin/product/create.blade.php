@@ -281,10 +281,18 @@
 
             <div class="form-group">
                 
-               <label for="archivosimagenes">Subir varias imagenes</label> 
+               <label for="imagenes">Añadir imagenes</label> 
                               
-               <input type="file" class="form-control-file" id="archivosimagenes[]" multiple 
+               <input type="file" class="form-control-file" name="imagenes[]" id="imagenes[]" multiple 
                accept="image/*" >
+               <div class="description">
+                Un número ilimitado de archivos pueden ser cargados en este campo. 
+                <br>
+                Límite de 2048 MB por imagen.
+                <br>
+                Tipos permitidos: jpeg, png, jpg, gif, svg.
+                <br>
+               </div>
             </div>
 
 
