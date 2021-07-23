@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="http://127.0.0.1:8000/adminlte/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  @yield('estilos')
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="http://127.0.0.1:8000/adminlte/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -802,5 +803,6 @@
 <script src="http://127.0.0.1:8000/adminlte/dist/js/demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="{{ asset('js/app_admin.js') }}" defer></script>
+@yield('scripts')
 </body>
 </html>
